@@ -16,6 +16,17 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+
+  {
+    path : "/users",
+
+    name : "users",
+
+    component:() => 
+
+    import("../views/Users.vue")
+
+  }
 ];
 
 const router = createRouter({
