@@ -50,22 +50,27 @@ export default {
 
 	methods : {
 
-		getUser(){
+		 async	getUser(){
 
-			
+		 	const res = await fetch("https://randomuser.me/api")
+
+		 	const { results } = await res.json()
+
+
+	
 			//console.log(results)
 
-			this.name = "Vanessa",
+			this.name = results[0].name.first,
 
-			this.surname = "Craig",
+			this.surname = results[0].name.last,
 
-			this.email = "vanessacraig@gmail.com",
+			this.email = results[0].email,
 
-			this.entreprise = "twitter community",
+			this.entreprise = results[0].location.state,
 
-			this.picture = "https://randomuser.me/api/portraits/women/5.jpg",
+			this.picture = results[0].picture.large,
 
-			this.gender = "female"
+			this.gender = results[0].gender
 
 		}
 
